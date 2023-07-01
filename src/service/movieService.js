@@ -4,14 +4,15 @@ export const MovieService = {
     getAllMovies: async () => {
         return await axiosInstance.get("/movies")
     },
-    saveMovie: async (data)=>{
-        return await axiosInstance.post("/movies",data)
+    saveMovie: async (data) => {
+        return await axiosInstance.post("/movies", data)
     },
-    deleteMovie: async (id)=>{
+    getById: async id => await axiosInstance.get("/movies/" + id),
+    deleteMovie: async (id) => {
         return await axiosInstance.delete(`/movies/${id}`)
     },
-    updateMovie: async (id,data)=>{
-        return await axiosInstance.put(`/movies/${id}`,data)
+    updateMovie: async (id, data) => {
+        return await axiosInstance.put(`/movies/${id}`, data)
     },
     getGenres: async () => {
         return await axiosInstance.get("/movies/genres")

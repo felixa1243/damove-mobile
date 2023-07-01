@@ -31,7 +31,7 @@ const AddMovie = () => {
         )
     }
     if (mutation.isSuccess) {
-        navigation.navigate("Home")
+        navigation.navigate("Home", {refetch: true})
         movieContext.dispatch("RESET")
     }
     return (
@@ -66,18 +66,21 @@ const AddMovie = () => {
             }
             {
                 mutation.isError && (
-                    <Text style={{color: "red",margin:7}}>{mutation?.error.response.data.message.replace("\[||\]","")}</Text>
+                    <Text style={{
+                        color: "red",
+                        margin: 7
+                    }}>{mutation?.error.response.data.message.replace("\[||\]", "")}</Text>
                 )
             }
-            <View style={{width:"100%",justifyContent:"center",marginTop:10,alignItems:"center"}}>
+            <View style={{width: "100%", justifyContent: "center", marginTop: 10, alignItems: "center"}}>
                 <TouchableOpacity
                     onPress={() => {
                         mutation.mutate(movieContext.movie)
                     }
                     }
-                    style={{backgroundColor:"red",width:"80%",padding:5,borderRadius:5,alignItems:"center"}}
+                    style={{backgroundColor: "red", width: "80%", padding: 5, borderRadius: 5, alignItems: "center"}}
                 >
-                    <Text style={{color:"white"}}>Add movies</Text>
+                    <Text style={{color: "white"}}>Add movies</Text>
                 </TouchableOpacity>
             </View>
         </View>
