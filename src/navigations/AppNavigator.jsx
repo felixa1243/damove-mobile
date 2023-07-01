@@ -1,13 +1,14 @@
-import {createStackNavigator} from "@react-navigation/stack";
+import {createStackNavigator, TransitionPresets} from "@react-navigation/stack";
 import {NavigationContainer} from "@react-navigation/native";
-import {Home} from "../screens";
+import {AddMovie, Home} from "../screens";
 
 const Stack = createStackNavigator()
 const AppNavigator = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator screenOptions={{...TransitionPresets.ModalTransition}}>
                 <Stack.Screen name={"Home"} component={Home}/>
+                <Stack.Screen name={"AddMovie"} component={AddMovie}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -12,5 +12,8 @@ export const MovieService = {
     },
     updateMovie: async (id,data)=>{
         return await axiosInstance.put(`/movies/${id}`,data)
+    },
+    getGenres: async () => {
+        return await axiosInstance.get("/movies/genres")
     }
 }
