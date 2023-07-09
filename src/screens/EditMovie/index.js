@@ -59,15 +59,16 @@ const EditMovie = (props) => {
     const postData = {title, director, summary, genresName}
     return (
         <View style={{marginHorizontal: 5, marginVertical: 5}}>
-            {formList.map(item => (
+            {formList.map((item,index) => (
                 <InputGroup
-                    key={item.placeholder}
+                    key={index}
                     onChange={item.onChange}
                     value={item.value}
                     placeholder={item.placeholder}
                 />
             ))}
-            {genreDatas && genreDatas.length > 0 ? (
+            {
+                genreDatas && genreDatas.length > 0 ? (
                 <View style={{flexDirection: "row"}}>
                     {genreDatas.map(item => (
                         <Select

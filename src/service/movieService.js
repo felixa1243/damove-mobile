@@ -16,5 +16,6 @@ export const MovieService = {
     },
     getGenres: async () => {
         return await axiosInstance.get("/movies/genres")
-    }
+    },
+    getByTitle: async (title)=> await axiosInstance.get(`/movies/q?title=${title}`)
 }
